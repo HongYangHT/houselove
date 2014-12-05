@@ -10,7 +10,7 @@
 	//switch icon
 	var $birthDate = $('#birthDate');
 	
-	$switch.on('click','i.fa,.shake_tips',function(e){
+	$switch.on('click','i.fa,.tooltips',function(e){
 		var $this = $(this);
 		if($this.is('.fa')){
 			$this.toggleClass('fa-pencil');			
