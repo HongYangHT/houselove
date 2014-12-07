@@ -7,10 +7,11 @@ var router = express.Router();
 //});
 
 router.get('/',function(req,res){
-	res.sendfile('public/html/login.html');
+	res.render('login');
 });
 
 router.get('/main',function(req,res){
 	res.sendfile('public/html/main.html');
 });
+
 module.exports = router;
