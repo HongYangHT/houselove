@@ -24,7 +24,8 @@ module.exports = function(grunt){
                     }
                 },
                 files : {
-                	'public/css/login.min.css':'public/css/login.css'
+                	'public/css/login.min.css':'public/css/login.css',
+                	'public/css/lib/datepicker.min.css':'public/css/lib/datepicker.css'
                 }
             }
 		},

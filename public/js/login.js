@@ -30,6 +30,9 @@
 		});		
 	}
 	
-//	$birthDate.datepicker();
-		
+	$birthDate.datepicker({
+		weekStart: 1,
+		format:'yyyy/mm/dd'
+	});
+	
 })(jQuery);
