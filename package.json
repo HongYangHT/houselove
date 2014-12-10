@@ -1,8 +1,8 @@
 {
   "name": "housel",
   "version": "0.0.1",
-  "description":"love house manager",
-  "author":"hoangyang",
+  "description": "love house manager",
+  "author": "hoangyang",
   "private": true,
   "scripts": {
     "start": "node app.js"
@@ -22,6 +22,7 @@
     "grunt-contrib-less": "~0.11.3",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-requirejs": "~0.4.4",
-    "grunt-contrib-uglify": "~0.5.1"
+    "grunt-contrib-uglify": "~0.5.1",
+    "supervisor": "^0.6.0"
   }
 }

@@ -21,7 +21,7 @@ router.get('/home',function(req,res){
 router.post('/',function(req,res){
 	var user = {
 		username : "admin",
-		password : "123"
+		password : "admin"
 	};
 	if(req.body.username===user.username && req.body.password===user.password){
 		res.redirect('/home');

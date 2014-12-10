@@ -4,7 +4,8 @@ module.exports = function(grunt){
 			compileLogin: {
 				option:{ },
 				files: {
-					'public/css/login.css':'public/less/login.less'
+					'public/css/login.css':'public/less/login.less',
+					'public/css/home.css':'public/less/home.less'
 				}
 			},
 			compileMain: {
@@ -24,8 +25,9 @@ module.exports = function(grunt){
                     }
                 },
                 files : {
+                	'public/css/lib/datepicker.min.css':'public/css/lib/datepicker.css',
                 	'public/css/login.min.css':'public/css/login.css',
-                	'public/css/lib/datepicker.min.css':'public/css/lib/datepicker.css'
+                	'public/css/home.min.css':'public/css/home.css'
                 }
             }
 		},
