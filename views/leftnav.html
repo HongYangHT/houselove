@@ -1,0 +1,61 @@
+<section class="left-nav col-sm-3">
+	<div class="personnal-title">
+		<span>Personal Information</span>				
+		<i class="fa fa-toggle-on pull-right"></i>
+	</div>
+	<div class="personal-info">
+		<div class="account">
+			<img class="img-circle" src="../images/p_icon.png"/>
+			<a href="javascript:;" ><%= user.username%></a>
+			<i class="fa fa-angle-down pull-right"></i>
+		</div>
+	</div>
+	<div class="info-tips">
+		<div class="title">Introduction</div>
+		<div class="introduce">
+			<i class="fa fa-star"></i>
+			<span class="favor">Every house thinks its own pack heaviest !</span>
+		</div>
+	</div>
+	<div class="panel-group" id="collapsePanel">
+		<div class="panel panel-default">
+			<div class="panel panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#collapsePanel" href="#viewFriend" aria-expanded="false" aria-controls="viewFriend">
+						<span><i class="fa fa"></i>Friend </span>
+					</a>
+				</h4>
+			</div>
+			<div id="viewFriend" class="panel-collpase collpase">
+				<div class="panel panel-body">
+					<dl>
+						<dd class="border-div"></dd>
+						<dd><a href="javascript:;">friend 1</a></dd>
+						<dd class="border-div"></dd>
+						<dd><a href="javascript:;">friend 2</a></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel panel-heading">
+				<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#collapsePanel" href="#viewFriend1"  aria-expanded="false" aria-controls="viewFriend1">
+						<span><i class="fa fa"></i>Friend </span>
+					</a>
+				</h4>
+			</div>
+			<div id="viewFriend1" class="panel-collpase collpase">
+				<div class="panel panel-body">
+					<dl>
+						<dd class="border-div"></dd>
+						<dd><a href="javascript:;">friend 1</a></dd>
+						<dd class="border-div"></dd>
+						<dd><a href="javascript:;">friend 2</a></dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

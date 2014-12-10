@@ -393,6 +393,7 @@
 
 .datetimepicker th.switch {
 	width: 145px;
+	position: inherit;
 }
 
 .datetimepicker th span.glyphicon {
