@@ -1,9 +1,5 @@
-.navbar-bar a {
-  text-decoration: none;
-  color: #9d9d9d;
-}
-.navbar-bar a:hover {
-  color: #ffffff;
+.navbar-nav .fa-power-off {
+  padding-right: 8px;
 }
 header.navbar-inverse {
   margin-bottom: 0;
@@ -13,9 +9,12 @@ header.navbar-inverse {
   padding-bottom: 0;
 }
 .navbar-brand span {
-  font-size: 20px;
+  font-family: cursive;
+  font-size: 40px;
   font-weight: bold;
   color: #fff;
+  line-height: 40px;
+  vertical-align: middle;
 }
 #logo {
   background: url("../images/houselove_logo.png") 50px 50px no-repeat;
@@ -25,6 +24,60 @@ header.navbar-inverse {
   font-size: 20px;
   font-weight: bold;
   color: #fff;
+}
+.bg-white {
+  background: #ffffff;
+  margin: 0;
+}
+.text-center {
+  text-align: center;
+}
+.text-success {
+  color: #1aae88;
+}
+.d-block {
+  display: block;
+}
+.head {
+  width: 25px;
+}
+.p-modal {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  left: 320px;
+  top: 20px;
+  z-index: 5;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.p-modal:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: -16px;
+  border-top: 8px solid transparent;
+  border-right: 8px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+.p-modal .p-modal-heading,
+.p-modal .list-group {
+  background-color: #f2f4f8;
+}
+.p-modal .p-modal-heading {
+  border-bottom: 1px solid #dddddd;
+}
+.p-modal .list-group-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+  background-color: #f2f4f8;
+}
+.p-modal .list-group-item:hover {
+  background-color: #ffffff;
 }
 .left-nav {
   height: 100%;
@@ -62,11 +115,33 @@ header.navbar-inverse {
   color: #ffffff;
   padding-left: 15px;
 }
-.left-nav .personal-info .account .fa {
-  font-size: 25px;
-  line-height: 25px;
+.left-nav .personal-info .account a span {
+  padding-right: 10px;
+}
+.left-nav .personal-info .account .fa-comment-o {
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 22px;
   margin-top: 4px;
   margin-right: 7px;
+}
+.left-nav .personal-info .account .fa-comment-o:after {
+  content: '2';
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  font-size: 0.5em;
+  color: #ffffff;
+  line-height: 1.2em;
+  vertical-align: middle;
+  right: 15px;
+  top: 60px;
+  z-index: 2;
+  background: rgba(92, 154, 66, 0.9);
+  text-align: center;
+  border-radius: 5px;
 }
 .left-nav .info-tips {
   padding: 10px 15px;
@@ -81,10 +156,11 @@ header.navbar-inverse {
   padding: 8px 0px;
 }
 .left-nav .info-tips .introduce {
+  background: #3b367d;
   height: 75px;
   border-radius: 5px;
-  border: 1px solid #3b367d;
-  box-shadow: inset 0 0 2px 2px #3b367d;
+  border: 1px solid #4f4a91;
+  box-shadow: inset 0 0 2px 2px #4f4a91;
 }
 .left-nav .info-tips .introduce .fa {
   color: #a2a4c5;
@@ -128,6 +204,9 @@ header.navbar-inverse {
 .left-nav .panel-group .panel-default .panel-heading span {
   display: block;
 }
+.left-nav .panel-group .panel-default .panel-heading .collapse-title {
+  padding-left: 10px;
+}
 .left-nav .panel-group .panel-default .panel-collapse {
   background-color: #4f4a91;
   background-image: none;
@@ -141,6 +220,17 @@ header.navbar-inverse {
   border-radius: 0;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+.left-nav .panel-group .panel-default .panel-body .head {
+  width: 25px;
+}
+.left-nav .panel-group .panel-default .panel-body .u-name {
+  padding-left: 5px;
+}
+.left-nav .panel-group .panel-default .panel-body .fa-paper-plane {
+  height: 25px;
+  line-height: 25px;
+  cursor: pointer;
 }
 .left-nav .panel-group .panel-default .panel-body dl {
   margin-bottom: 0px;
