@@ -18,6 +18,10 @@ router.get('/home',function(req,res){
 	res.render('home',{ user:user});
 });
 
+router.get('/chat',function(req,res){
+	res.render('chat');
+});
+
 router.post('/',function(req,res){
 	var user = {
 		username : "admin",

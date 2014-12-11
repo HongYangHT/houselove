@@ -8,6 +8,7 @@
 	var $panelHeading = $('.panel-heading');
 	var $pModal = $('.p-modal');
 	var $pBadge = $('.p-badge');
+	var $item = $pModal.find('.list-group-item');
 	
 	$panelHeading.on('click',function(e){
 		var $this = $(this);
@@ -16,6 +17,10 @@
 	
 	$pBadge.on('click',function(e){
 		animateInOut();
+	});
+	
+	$item.on('click',function(e){
+		$pModal.addClass('hidden');
 	});
 	
 	function animateInOut(){
