@@ -1,0 +1,54 @@
+.bg-white {
+  background: #ffffff;
+  margin: 0;
+}
+.text-center {
+  text-align: center;
+}
+.text-success {
+  color: #1aae88;
+}
+.d-block {
+  display: block;
+}
+.head {
+  width: 25px;
+}
+.p-modal {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  left: 320px;
+  top: 20px;
+  z-index: 5;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.p-modal:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: -16px;
+  border-top: 8px solid transparent;
+  border-right: 8px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+.p-modal .p-modal-heading,
+.p-modal .list-group {
+  background-color: #f2f4f8;
+}
+.p-modal .p-modal-heading {
+  border-bottom: 1px solid #dddddd;
+}
+.p-modal .list-group-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+  background-color: #f2f4f8;
+}
+.p-modal .list-group-item:hover {
+  background-color: #ffffff;
+}
