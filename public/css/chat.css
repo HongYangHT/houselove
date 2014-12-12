@@ -1,3 +1,10 @@
+/* mixins css*/
+/* -weikit-scrollbar 
+ *@description 
+ * @scroll_width: scrollbar width
+ * @scroll_height: scrollbar height
+ * @b-radius: scrollbar border-radius
+*/
 .bg-white {
   background: #ffffff;
   margin: 0;
@@ -20,11 +27,10 @@
   width: 25px;
 }
 .border-div {
-  width: 100%;
   height: 0px;
-  border: 1px solid #dddddd;
+  border: 1px solid #e1e6ef;
   padding: 0;
-  margin: 0;
+  margin: 25px -15px;
 }
 .p-modal {
   width: 300px;
@@ -68,11 +74,11 @@
 .arrow-left-up {
   width: 0px;
   height: 0px;
-  position: absolute;
+  position: relative;
   z-index: 2;
   /*border-color:#fff;*/
-  top: 71px;
-  left: 30px;
+  top: 17px;
+  left: -15px;
   border-top: 8px solid transparent;
   border-right: 8px solid #fff;
   border-bottom: 8px solid transparent;
@@ -81,10 +87,10 @@
 .arrow-left-down {
   width: 0px;
   height: 0px;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  top: 70px;
-  left: 27px;
+  top: 0px;
+  left: -18px;
   /*border-color:#fff;*/
   border-top: 9px solid transparent;
   border-right: 9px solid #e1e6ef;
@@ -94,11 +100,11 @@
 .arrow-right-up {
   width: 0px;
   height: 0px;
-  position: absolute;
+  position: relative;
   z-index: 2;
   /*border-color:#fff;*/
-  top: 71px;
-  left: 30px;
+  top: 20px;
+  right: -415px;
   border-top: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid transparent;
@@ -107,10 +113,10 @@
 .arrow-right-down {
   width: 0px;
   height: 0px;
-  position: absolute;
+  position: relative;
   z-index: 1;
-  top: 70px;
-  left: 27px;
+  top: 3px;
+  right: -416px;
   /*border-color:#fff;*/
   border-top: 9px solid transparent;
   border-right: 9px solid transparent;
@@ -119,6 +125,7 @@
 }
 .chat-main {
   margin: 0;
+  overflow: auto;
 }
 .chat-container,
 .svg-container {
@@ -145,6 +152,36 @@
 .svg-container .chat-title span {
   margin-left: 15px;
 }
+.chat-container .re-chat-content,
+.svg-container .re-chat-content {
+  margin-top: 15px;
+}
+.chat-container .re-chat-content .chat-body,
+.svg-container .re-chat-content .chat-body {
+  margin-right: 30px;
+}
+.chat-container .re-chat-content .chat-body .panel,
+.svg-container .re-chat-content .chat-body .panel {
+  border-radius: 5px;
+  border: 1px solid #e1e6ef;
+  margin-bottom: 0;
+}
+.chat-container .re-chat-content .chat-body .panel .panel-body,
+.svg-container .re-chat-content .chat-body .panel .panel-body {
+  margin-top: -30px;
+}
+.chat-container .re-chat-content .chat-body .send-time,
+.svg-container .re-chat-content .chat-body .send-time {
+  color: #b0b6ba;
+}
+.chat-container .send-m-content,
+.svg-container .send-m-content {
+  margin-top: 20px;
+}
+.chat-container .send-m-content .chat-body,
+.svg-container .send-m-content .chat-body {
+  margin-left: 30px;
+}
 .chat-container .chat-content,
 .svg-container .chat-content {
   margin-top: 15px;
@@ -155,11 +192,64 @@
 }
 .chat-container .chat-content .chat-body .panel,
 .svg-container .chat-content .chat-body .panel {
+  /*&:before{
+					content:"";
+					width:0px;
+					height:0px;
+					position:absolute;
+					z-index:2;
+					top:71px;
+					left:30px;
+					border-top:8px solid transparent;
+					border-right:8px solid #fff;
+					border-bottom:8px solid transparent;
+					border-left:8px solid transparent;
+				}
+				&:after{
+					content:"";
+					width:0px;
+					height:0px;
+					position:absolute;
+					z-index:1;
+					top:70px;
+					left:27px;
+					border-top:9px solid transparent;
+					border-right:9px solid @chat-content-border;
+					border-bottom:9px solid transparent;
+					border-left:9px solid transparent;
+				}*/
   border-radius: 5px;
   border: 1px solid #e1e6ef;
   margin-bottom: 0;
+}
+.chat-container .chat-content .chat-body .panel .panel-body,
+.svg-container .chat-content .chat-body .panel .panel-body {
+  margin-top: -30px;
 }
 .chat-container .chat-content .chat-body .send-time,
 .svg-container .chat-content .chat-body .send-time {
   color: #b0b6ba;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(50, 50, 50, 0.25);
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-button {
+  background-color: rgba(50, 50, 50, 0.05);
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(50, 50, 50, 0.05);
+}
+/*::-webkit-scrollbar-button:vertical:decrement:hover{
+		background-color:rgba(50,50,50,.25);
+	}
+	
+	::-webkit-scrollbar-thumb:window-inactive{
+		background-color:rgba(50,50,50,.05);
+	}*/
