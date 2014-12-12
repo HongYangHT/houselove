@@ -36,7 +36,7 @@
   width: 300px;
   height: auto;
   position: absolute;
-  left: 320px;
+  left: 100%;
   top: 20px;
   z-index: 5;
   border-radius: 5px;
@@ -104,7 +104,7 @@
   z-index: 2;
   /*border-color:#fff;*/
   top: 20px;
-  right: -415px;
+  right: -100%;
   border-top: 8px solid transparent;
   border-right: 8px solid transparent;
   border-bottom: 8px solid transparent;
@@ -116,7 +116,7 @@
   position: relative;
   z-index: 1;
   top: 3px;
-  right: -416px;
+  right: -100%;
   /*border-color:#fff;*/
   border-top: 9px solid transparent;
   border-right: 9px solid transparent;
