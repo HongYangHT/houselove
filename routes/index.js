@@ -22,6 +22,11 @@ router.get('/chat',function(req,res){
 	res.render('chat');
 });
 
+router.get('/index',function(req,res){
+	res.render('index');
+});
+
+
 router.post('/',function(req,res){
 	var user = {
 		username : "admin",

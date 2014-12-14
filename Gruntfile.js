@@ -28,6 +28,7 @@ module.exports = function(grunt){
                 files : {
                 	'public/css/lib/bootstrap-datetimepicker.min.css':'public/css/lib/bootstrap-datetimepicker.css',
                 	'public/css/lib/datepicker.min.css':'public/css/lib/datepicker.css',
+                	'public/css/lib/animate.min.css':'public/css/lib/animate.css',
                 	'public/css/login.min.css':'public/css/login.css',
                 	'public/css/home.min.css':'public/css/home.css',
                 	'public/css/chat.min.css':'public/css/chat.css'

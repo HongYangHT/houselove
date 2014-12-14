@@ -95,11 +95,13 @@
   }
 }
 .shake_tips {
-  animation: shake-tips 3s;
-  -moz-animation: shake-tips 3s;
-  -webkit-animation: shake-tips 3s;
-  -0-animation: shake-tips 3s;
-  transform-origin: center;
+  animation-name: shake-tips;
+  animation-duration: 0.75s;
+  -webkit-animation-name: shake-tips;
+  -webkit-animation-duration: 0.75s;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  /* Safari 和 Chrome */
 }
 @keyframes shake-tips {
   0%,
