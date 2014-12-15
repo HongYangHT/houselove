@@ -154,3 +154,7 @@ body {
 .info-content .view-states .text-span {
   font-size: 12px;
 }
+.relations {
+  border: 1px solid #dddddd;
+  height: 600px;
+}
