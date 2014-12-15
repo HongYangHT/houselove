@@ -32,7 +32,9 @@
 			 * 这里需要将数据ajax给后台
 			 * $.ajax({
 			 * 	url:"",
-			 * 	data: {message : text},
+			 * 	data: {message : text,
+			 * 		   dateString : dateString 			
+			 * 	},
 			 * 	type: 'POST',
 			 * 	dataType :'json',
 			 * 	success: function(result){
