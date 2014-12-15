@@ -23,7 +23,26 @@ router.get('/chat',function(req,res){
 });
 
 router.get('/index',function(req,res){
-	res.render('index');
+	var user={
+		username:'sam',
+		password:'admin'
+	};
+	
+	var joinTime = {
+		time : '12/2/2014'	
+	};
+	
+	var follower = {
+		follower:'12',
+		viewer:'2',
+		share:'1'	
+	};
+	
+	res.render('index',{ 
+		user:user,
+		joinTime:joinTime,
+		follower:follower
+	});
 });
 
 

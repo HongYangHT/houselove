@@ -6,7 +6,8 @@ module.exports = function(grunt){
 				files: {
 					'public/css/login.css':'public/less/login.less',
 					'public/css/home.css':'public/less/home.less',
-					'public/css/chat.css':'public/less/chat.less'
+					'public/css/chat.css':'public/less/chat.less',
+					'public/css/index.css':'public/less/index.less'
 				}
 			},
 			compileMain: {
@@ -31,7 +32,8 @@ module.exports = function(grunt){
                 	'public/css/lib/animate.min.css':'public/css/lib/animate.css',
                 	'public/css/login.min.css':'public/css/login.css',
                 	'public/css/home.min.css':'public/css/home.css',
-                	'public/css/chat.min.css':'public/css/chat.css'
+                	'public/css/chat.min.css':'public/css/chat.css',
+                	'public/css/index.min.css':'public/css/index.css'
                 }
             }
 		},
