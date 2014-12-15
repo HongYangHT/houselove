@@ -10,20 +10,21 @@
 				</a>
 				<div class="caption">
 					<h3><%= user.username %></h3>
+					<div class="border-div"></div>
 					<div class="join">
 						<span class="glyphicon glyphicon-time"></span><span>Joined on <%= joinTime.time %></span>
 						<div class="border-div"></div>
 						<div class="view-states">
 							<a class="view-state" href="javascript:;">
-								<strong class="view-state"><%= follower.follower %></strong>
+								<strong class="view-state-sum"><%= follower.follower %></strong>
 								<span class="text-span">Follower</span>
 							</a>
 							<a class="view-state" href="javascript:;">
-								<strong class="view-state"><%= follower.viewer %></strong>
+								<strong class="view-state-sum"><%= follower.viewer %></strong>
 								<span class="text-span">Viewer</span>
 							</a>
 							<a class="view-state" href="javascript:;">
-								<strong class="view-state"><%= follower.share %></strong>
+								<strong class="view-state-sum"><%= follower.share %></strong>
 								<span class="text-span">Share</span>
 							</a>
 						</div>

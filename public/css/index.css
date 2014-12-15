@@ -126,8 +126,31 @@
 body {
   width: 100%;
   height: 100%;
+  padding: 0;
+  border: none;
 }
 .info-content {
-  margin: 0;
+  margin: 15px auto;
   overflow: auto;
+}
+.info-content .glyphicon-time {
+  color: #a2a4c5;
+  margin-right: 10px;
+}
+.info-content .view-states {
+  text-align: center;
+  font-size: 12px;
+  height: 50px;
+}
+.info-content .view-states .view-state {
+  width: 33.333%;
+  float: left;
+  text-decoration: none;
+}
+.info-content .view-states .view-state-sum {
+  font-size: 22px;
+  display: block;
+}
+.info-content .view-states .text-span {
+  font-size: 12px;
 }

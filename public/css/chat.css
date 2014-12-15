@@ -124,7 +124,7 @@
   border-left: 9px solid #e1e6ef;
 }
 .chat-main {
-  margin: 0;
+  margin: 0 auto 15px auto;
   overflow: auto;
 }
 .chat-container,

@@ -4,8 +4,31 @@
 body{
 	width:100%;
 	height:100%;
+	padding:0;
+	border:none;
 }
 .info-content{
-	margin:0;
+	margin:@margin-l auto;
 	overflow:auto;
+	.glyphicon-time{
+		color:@tips-color;
+		margin-right:@margin-m;
+	}
+	.view-states{
+		text-align:center;
+		font-size:@font-size-m;
+		height:50px;
+		.view-state{
+			width:33.333%;
+			float:left;
+			text-decoration:none;
+		}
+		.view-state-sum{
+			font-size:@font-size-m+10;
+			display:block;
+		}
+		.text-span{
+			font-size:@font-size-m;
+		}
+	}
 }

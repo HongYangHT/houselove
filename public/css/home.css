@@ -321,6 +321,11 @@ body {
   margin: 0;
   padding: 0;
 }
+@media (min-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+}
 .home-row {
   padding: 0;
   margin: 0;
