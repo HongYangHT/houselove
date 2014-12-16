@@ -6,6 +6,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/* define mongoose*/
+var mongoose = require('mongoose'); // step 1
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -61,6 +64,10 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+mongoose.connect('mongodb://localhost/houseloveuser'); //step 2
+
+
 
 http.createServer(app,function(req,res){
 		res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});
