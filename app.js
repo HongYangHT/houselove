@@ -6,7 +6,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-/* define mongoose*/
+/**
+ * @define session
+ * */
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
+/**
+ * @define mongoose
+ * */
 var mongoose = require('mongoose'); // step 1
 
 var routes = require('./routes/index');
@@ -29,6 +37,22 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+/**
+ * @define session step 2
+ * */
+app.use(session({
+  secret: 'secret',
+  store: new MongoStore({
+    url: 'mongodb://localhost/houseloveuser'
+  }),
+  resave: true,
+  saveUninitialized: true,
+  cookie :{
+	  orignalMaxAge:6000
+  }
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
@@ -64,6 +88,7 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 
 mongoose.connect('mongodb://localhost/houseloveuser'); //step 2
 

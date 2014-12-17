@@ -30,7 +30,11 @@ router.post('/reg',function(req,res){
 	       		 if(!err){  
 	       	        if(docs!=''){  
 	       	            console.log(docs);                  
-	       	            return res.redirect('/home'+"?id="+docs[0]._id+'');  
+//	       	            return res.redirect('/home'+"?id="+docs[0]._id+'');
+	       	            req.session.username = user.username;
+	       	            req.session._id = docs[0]._id;
+	       	            console.log(req.session);
+	       	            return res.redirect('/home');
 	       	        } else{  
 	       	            console.log('注册失败！');  
 	       	            return res.redirect('/');  
@@ -56,8 +60,13 @@ router.post('/doReg',function(req,res){
 	 User.find(user,function(err,docs){
 		 if(!err){  
 	        if(docs!=''){  
-	            console.log(docs);                  
-	            return res.redirect('/home'+"?id="+docs[0]._id+'');  
+	            console.log(docs); 
+	            console.log(user); 
+	            console.log(req.session);
+	            req.session.username = user.username;
+	            req.session._id = docs[0]._id;
+//	            return res.redirect('/home'+"?id="+docs[0]._id+'');  
+	            return res.redirect('/home');
 	        } else{  
 	            console.log('用户名或密码不正确');  
 	            return res.redirect('/');  
@@ -77,18 +86,21 @@ router.get('/home',function(req,res){
 //		password:'admin'
 //	};
 	var user = {};
-	var id = req.param('id');
-	console.log(id);
-	if(id){
-		User.find({_id:id},function(err,docs){
-			if(!err){
-				user.username = docs[0].username;
-			}
-			res.render('home',{ user:user});
-		});
-	}else{
-		 res.redirect('/');
-	}
+//	var id = req.param('id');
+//	console.log(id);
+//	if(id){
+//		User.find({_id:id},function(err,docs){
+//			if(!err){
+//				user.username = docs[0].username;
+//			}
+//			res.render('home',{ user:user});
+//		});
+//	}else{
+//		 res.redirect('/');
+//	}
+	user.username = req.session.username;
+	res.render('home',{user:user});
+	
 });
 
 router.get('/chat',function(req,res){
