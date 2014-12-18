@@ -3,11 +3,12 @@ var mongoose = require('mongoose'),
 	ObjectId = Schema.ObjectId;
 
 var UserSchema = new Schema({
-	username : String,
-	password : String,
-	email	 : String,
-	address  : String,
-	birthDate: String
+	username : { type:String,required:true },
+	password : { type:String,required:true },
+	email	 : { type:String,required:true },
+	birthDate: { type:Date,default:Date.now}
 });
+
+UserSchema.add({ signupDate:{type:Date,default:Date.now}});
 
 module.exports = mongoose.model('User', UserSchema);

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var User = require('../models/user');
+var Message = require('../models/message');
 
 /* GET home page. */
 //router.get('/', function(req, res) {
@@ -104,18 +105,40 @@ router.get('/home',function(req,res){
 });
 
 router.get('/chat',function(req,res){
-	res.render('chat');
+	var user = {};
+	user.username = req.session.username;
+	res.render('chat',{user:user});
+});
+
+router.post('/chat',function(req,res){
+	var message = new Message({
+		master_id : req.session._id,
+		content   : req.body.message,
+		create_at : req.body.dateStraing,
+		sendTo_id : req.session._id
+	});
+	message.save(function(err,message){
+		if(!err){
+			res.send(200,{
+				username : req.session.username,
+				message:'send success!'
+			});
+			console.log(message);
+		}
+	});
+	console.log(message);
+	console.log(req.body);
 });
 
 router.get('/index',function(req,res){
-	var user={
-		username:'sam',
-		password:'admin'
-	};
-	
-	var joinTime = {
-		time : '12/2/2014'	
-	};
+//	var user={
+//		username:'sam',
+//		password:'admin'
+//	};
+//	
+//	var joinTime = {
+//		time : '12/2/2014'	
+//	};
 	
 	var follower = {
 		follower:'12',
@@ -123,10 +146,17 @@ router.get('/index',function(req,res){
 		share:'1'	
 	};
 	
-	res.render('index',{ 
-		user:user,
-		joinTime:joinTime,
-		follower:follower
+	var user = {};
+	User.find({_id : req.session._id},function(err,docs){
+		if(!err){
+			user.username = docs[0].username;
+			var signupDate = docs[0].signupDate;
+			user.signupDate = (signupDate.getMonth()+1)+"/"+signupDate.getDate()+"/"+signupDate.getFullYear()+" "+signupDate.getHours()+":"+signupDate.getMinutes()+":"+signupDate.getSeconds();
+			res.render('index',{ 
+				user:user,
+				follower:follower
+			});	
+		}
 	});
 });
 
