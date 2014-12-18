@@ -54,7 +54,7 @@ router.post('/reg',function(req,res){
 /* handle sign in */
 router.post('/doReg',function(req,res){
 	 var user = {
-		 username : req.body.username,
+			email : req.body.email,
 		 password : req.body.password
 	 };
 	 
@@ -64,7 +64,7 @@ router.post('/doReg',function(req,res){
 	            console.log(docs); 
 	            console.log(user); 
 	            console.log(req.session);
-	            req.session.username = user.username;
+	            req.session.username = docs[0].username;
 	            req.session._id = docs[0]._id;
 //	            return res.redirect('/home'+"?id="+docs[0]._id+'');  
 	            return res.redirect('/home');
