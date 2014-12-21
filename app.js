@@ -49,7 +49,7 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie :{
-	  orignalMaxAge:6000
+	  maxAge:1800000
   }
 }));
 
@@ -90,9 +90,15 @@ app.use(function(err, req, res, next) {
 });
 
 
-mongoose.connect('mongodb://localhost/houseloveuser'); //step 2
+//mongoose.connect('mongodb://localhost/houseloveuser'); //step 2
 
+if(app.get('env') === 'development'){
+	mongoose.connect('mongodb://localhost/houseloveuser'); //step 2	
+}
 
+if(app.get('env') === 'production'){
+	mongoose.connect('mongodb://' + process.env.MONGOLAB_URI ); //step 2	
+}
 
 http.createServer(app,function(req,res){
 		res.writeHead(200, {'Content-Type': 'text/html;charset=utf-8'});

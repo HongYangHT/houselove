@@ -1,8 +1,13 @@
 var express = require('express');
-var router = express.Router();
+var router  = express.Router();
 
-var User = require('../models/user');
+/**
+ * create model
+ * */
+
+var User    = require('../models/user');
 var Message = require('../models/message');
+var Reply   = require('../models/reply');
 
 /* GET home page. */
 //router.get('/', function(req, res) {
@@ -119,7 +124,7 @@ router.post('/chat',function(req,res){
 	});
 	message.save(function(err,message){
 		if(!err){
-			res.send(200,{
+			res.status(200).send({
 				username : req.session.username,
 				message:'send success!'
 			});
@@ -128,6 +133,31 @@ router.post('/chat',function(req,res){
 	});
 	console.log(message);
 	console.log(req.body);
+});
+
+router.get('/reply',function(req,res){
+	res.render('reply');
+});
+
+router.post('/reply',function(req,res){
+	User.find({username:req.body.sendto},function(err,user){
+		if(!err){
+			var reply = new Reply({
+				reply_to : user[0]._id,
+				send_from: req.session._id,
+				content  : req.body.message,
+				send_time: req.body.dateString 
+			});
+			reply.save(function(err,message){
+				if(!err){
+					res.status(200).send({
+						username : req.session.username,
+						message:'send success!'
+					});
+				}
+			});
+		}
+	});
 });
 
 router.get('/index',function(req,res){
@@ -151,7 +181,8 @@ router.get('/index',function(req,res){
 		if(!err){
 			user.username = docs[0].username;
 			var signupDate = docs[0].signupDate;
-			user.signupDate = (signupDate.getMonth()+1)+"/"+signupDate.getDate()+"/"+signupDate.getFullYear()+" "+signupDate.getHours()+":"+signupDate.getMinutes()+":"+signupDate.getSeconds();
+			user.signupDate = (signupDate.getMonth()+1)+"/"+signupDate.getDate()+"/"+signupDate.getFullYear()+" "+(signupDate.getHours()>9?signupDate.getHours():"0"+signupDate.getHours())+
+			":"+(signupDate.getMinutes()>9?signupDate.getMinutes():"0"+signupDate.getMinutes())+":"+(signupDate.getSeconds()>9?signupDate.getSeconds():"0"+signupDate.getSeconds());
 			res.render('index',{ 
 				user:user,
 				follower:follower
