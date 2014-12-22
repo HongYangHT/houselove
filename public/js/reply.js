@@ -66,5 +66,4 @@
 			$sendMessage.click();
 		}		
 	});
-	
 })(jQuery);
