@@ -31,15 +31,12 @@ router.post('/reg',function(req,res){
 	});
 	user.save(function (err, user) {  
         if(!err) {  
-            console.log(user); 
             User.find(user,function(err,docs){
 	       		 if(!err){  
 	       	        if(docs!=''){  
-	       	            console.log(docs);                  
 //	       	            return res.redirect('/home'+"?id="+docs[0]._id+'');
 	       	            req.session.username = user.username;
 	       	            req.session._id = docs[0]._id;
-	       	            console.log(req.session);
 	       	            return res.redirect('/home');
 	       	        } else{  
 	       	            console.log('注册失败！');  
@@ -53,7 +50,6 @@ router.post('/reg',function(req,res){
 //            res.redirect('/');  
         }          
     });  
-    console.log(req.body.user);
 });
 
 /* handle sign in */
@@ -66,9 +62,6 @@ router.post('/doReg',function(req,res){
 	 User.find(user,function(err,docs){
 		 if(!err){  
 	        if(docs!=''){  
-	            console.log(docs); 
-	            console.log(user); 
-	            console.log(req.session);
 	            req.session.username = docs[0].username;
 	            req.session._id = docs[0]._id;
 //	            return res.redirect('/home'+"?id="+docs[0]._id+'');  
@@ -87,32 +80,28 @@ router.post('/doReg',function(req,res){
 
 
 router.get('/home',function(req,res){
-//	var user={
-//		username:'admin',
-//		password:'admin'
-//	};
 	var user = {};
-//	var id = req.param('id');
-//	console.log(id);
-//	if(id){
-//		User.find({_id:id},function(err,docs){
-//			if(!err){
-//				user.username = docs[0].username;
-//			}
-//			res.render('home',{ user:user});
-//		});
-//	}else{
-//		 res.redirect('/');
-//	}
 	user.username = req.session.username;
-	res.render('home',{user:user});
-	
+	Reply.find({reply_to:req.session._id},function(err,docs){
+		if(!err){
+			user._id = req.session._id;
+			user.receiveMessage = docs;
+			console.log(user|user.receiveMessage.length);
+			res.render('home',{user:user});
+		}
+	});
 });
 
 router.get('/chat',function(req,res){
 	var user = {};
 	user.username = req.session.username;
-	res.render('chat',{user:user});
+	Reply.find({reply_to:req.session._id},function(err,docs){
+		if(!err){
+			user._id = req.session._id;
+			user.receiveMessage = docs;
+			res.render('chat',{user:user});
+		}
+	});
 });
 
 router.post('/chat',function(req,res){
@@ -131,8 +120,6 @@ router.post('/chat',function(req,res){
 			console.log(message);
 		}
 	});
-	console.log(message);
-	console.log(req.body);
 });
 
 router.get('/reply',function(req,res){
@@ -146,8 +133,10 @@ router.post('/reply',function(req,res){
 				reply_to : user[0]._id,
 				send_from: req.session._id,
 				content  : req.body.message,
+				sender   : req.session.username,
 				send_time: req.body.dateString 
 			});
+			console.log(req.body);
 			reply.save(function(err,message){
 				if(!err){
 					res.status(200).send({
@@ -161,15 +150,6 @@ router.post('/reply',function(req,res){
 });
 
 router.get('/index',function(req,res){
-//	var user={
-//		username:'sam',
-//		password:'admin'
-//	};
-//	
-//	var joinTime = {
-//		time : '12/2/2014'	
-//	};
-	
 	var follower = {
 		follower:'12',
 		viewer:'2',
@@ -204,8 +184,8 @@ router.get('/index',function(req,res){
 	res.redirect('/');
 });*/
 
-router.get('/main',function(req,res){
-	res.sendfile('public/html/main.html');
-});
+//router.get('/main',function(req,res){
+//	res.sendfile('public/html/main.html');
+//});
 
 module.exports = router;

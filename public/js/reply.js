@@ -31,7 +31,7 @@
 				url:'/reply',
 				data:{
 					message:text,
-					dateStraing:dateString,
+					dateString:dateString,
 					sendto:$chatTitle.text().split(' ')[2].toLowerCase()
 				},
 				type:'POST',

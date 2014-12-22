@@ -7,10 +7,11 @@ var mongoose = require('mongoose'),
 	ObjectId = Schema.ObjectId;
 
 var ReplySchema = new Schema({
-	reply_to : { type:ObjectId, required:true },
+	reply_to  : { type :ObjectId, required:true },
 	send_from : { type:ObjectId, required:true },
+	sender    : { type:String , required:true },
 	content   : { type:String },
-	send_time : { type:Date , default : Date.now}
+	send_time : { type:String}
 });
 
 module.exports = mongoose.model('Reply',ReplySchema);

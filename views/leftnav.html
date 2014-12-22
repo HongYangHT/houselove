@@ -7,7 +7,7 @@
 		<div class="account">
 			<img class="img-circle" src="../images/p_icon.png"/>
 			<a href="javascript:;" ><span><%= user.username%></span><i class="fa fa-cog fa-spin"></i></a>
-			<i class="fa fa-comment-o pull-right p-badge"><span class="badge">2</span></i>
+			<i class="fa fa-comment-o pull-right p-badge"><span class="badge"><%= user.receiveMessage.length %></span></i>
 		</div>
 	</div>
 	
@@ -15,10 +15,10 @@
 	<div class="p-modal hidden">
 		<section class="panel bg-white">
 			<div class="panel-heading p-modal-heading">
-				<strong>You have <span class="m-count">2</span> notifications</strong>
+				<strong>You have <span class="m-count"><%= user.receiveMessage.length %></span> notifications</strong>
 			</div>
 			<div class="list-group">
-				<a href="javascript:;" class="list-group-item media">
+				<!-- <a href="javascript:;" class="list-group-item media">
 					<span class="text-center pull-left">
 						<i class="fa fa-envelope-o fa-2x text-success"></i>
 					</span>
@@ -33,7 +33,17 @@
 					<span class="media-body d-block">
 						<span class="m-message d-block">Alice leave a message for you !</span>
 					</span>
-				</a>
+				</a> -->
+				<% for(var i=0,len=user.receiveMessage.length;i< len ;i++){%>
+					<a href="chat" class="list-group-item media" target="iframe">
+						<span class="text-center pull-left">
+							<i class="fa fa-envelope-o fa-2x text-success"></i>
+						</span>
+						<span class="media-body d-block">
+							<span class="m-message d-block"><%= user.receiveMessage[i].sender %> leave messages for you !</span>
+						</span>
+					</a>
+				<% } %>	
 			</div>
 		</section>
 	</div>

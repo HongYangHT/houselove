@@ -8,7 +8,7 @@
 				<span>Chat</span>
 			</div>
 			<section class="chat-content">
-				<article class="chat-item">
+				<!-- <article class="chat-item">
 					<a href="javascript:;" class="pull-left ">
 						<img class="img-circle head head-f" src="../images/head-f.jpg" />
 					</a>
@@ -22,7 +22,24 @@
 						</div>
 						<small class="send-time">Alice ,4 hours ago</small>
 					</section>
-				</article>
+				</article> -->
+				<% for(var i=0,len = user.receiveMessage.length;i< len;i++){ %>
+					<article class="chat-item">
+						<a href="javascript:;" class="pull-left ">
+							<img class="img-circle head head-f" src="../images/head-f.jpg" />
+						</a>
+						<section class="chat-body">
+							<div class="panel text-sm">
+								<div class="arrow-left-up"></div>
+								<div class="arrow-left-down"></div>
+								<div class="panel-body">
+									<p><%= user.receiveMessage[i].content %></p>
+								</div>
+							</div>
+							<small class="send-time"><%= user.receiveMessage[i].sender %>, <%= user.receiveMessage[i].send_time %></small>
+						</section>
+					</article>
+				<% } %>
 			</section>
 			<!-- <section class="re-chat-content">
 				<article class="chat-item">
